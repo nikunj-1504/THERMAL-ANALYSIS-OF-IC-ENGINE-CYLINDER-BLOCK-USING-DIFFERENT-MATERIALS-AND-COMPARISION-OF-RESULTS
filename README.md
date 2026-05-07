@@ -37,6 +37,44 @@ The following properties were used for the simulation:
 * **Heat Flow**: 100 W (Calculated manually).
 * **Convection Type**: Average Film Temperature.
 
+## Simulation Results
+
+### 1. Geometry & Meshing
+Detailed parametric model and high-density mesh generated for analysis.
+* **Nodes**: 665,435  
+* **Elements**: 414,332  
+
+![Geometry](01_geometry.png)
+![Mesh](01_mesh.png)
+
+---
+
+### 2. Temperature Distribution
+Comparison of nodal temperatures under a maximum internal temperature of 1000°C.
+
+| Gray Cast Iron | Titanium Alloy |
+| :---: | :---: |
+| ![Cast Iron Temp](01_result_Cast%20Iron.png) | ![Titanium Temp](02_result_Titanium%20alloy.png) |
+| *Max: 1000.1°C* | *Max: 1005°C* |
+
+---
+
+### 3. Total Heat Flux
+Analysis of heat dissipation performance across the fin surfaces.
+
+| Gray Cast Iron | Titanium Alloy |
+| :---: | :---: |
+| ![Cast Iron Heat Flux](03_result_Cast%20Iron.png) | ![Titanium Heat Flux](04_result_Titanium%20alloy.png) |
+
+---
+
+### 4. Directional Heat Flux
+Comparison of heat flow vectors within the cylinder block.
+
+| Gray Cast Iron | Titanium Alloy |
+| :---: | :---: |
+| ![Cast Iron Directional](05_result_Cast%20Iron.png) | ![Titanium Directional](06_titanium-%20directional%20heat%20flux.png) |
+
 ## Conclusion
 The study concludes that **Titanium Alloy** offers several advantages for engine cylinder blocks:
 * **Weight Reduction**: Significant reduction in overall engine weight leads to improved fuel efficiency and lower emissions.
