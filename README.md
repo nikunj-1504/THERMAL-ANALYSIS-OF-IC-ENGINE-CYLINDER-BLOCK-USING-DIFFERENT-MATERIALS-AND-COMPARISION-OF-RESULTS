@@ -75,6 +75,33 @@ Comparison of heat flow vectors within the cylinder block.
 | :---: | :---: |
 | ![Cast Iron Directional](05_result_Cast%20Iron.png) | ![Titanium Directional](06_titanium-%20directional%20heat%20flux.png) |
 
+## 🐍 Python Analytical Validation
+This section documents the use of a custom Python script (`thermal_validation.py`) to verify the accuracy of the **ANSYS 22.0** transient thermal results using first-principle physics.
+
+### **Theoretical Framework**
+To ensure the simulation aligns with fundamental heat transfer laws, the script applies **Fourier's Law of Conduction** based on the project's specific boundary conditions:
+
+$$T_{surface} = T_{internal} - \frac{Q \cdot \Delta x}{k \cdot A}$$
+
+**Input Parameters from Study:**
+**Internal Temperature ($T_{internal}$)**: $1000^{\circ}C$ (The maximum temperature generated inside the cylinder block).
+**Heat Flow ($Q$)**: $100~W$ (Manually calculated value used for simulation loading).
+**Thermal Conductivity ($k$)**: $155.3$ (Al), $52$ (Cast Iron), and $21.9$ (Titanium) $W/mk$.
+
+### **Analytical Findings**
+The chart below illustrates the theoretical surface temperatures calculated via Python. This analytical check confirms the expected thermal trends:
+
+![Analytical Validation](analytical_validation.png)
+
+**Aluminum Alloy 6061**: With the highest thermal conductivity ($155.3~W/mk$), it shows the most efficient heat transfer, maintaining a theoretical surface temperature of **999.8°C**.
+
+**Gray Cast Iron**: Moderate conductivity ($52~W/mk$) results in a calculated surface temperature of **999.5°C**.
+
+**Titanium Alloy**: Its significantly lower conductivity ($21.9~W/mk$) creates higher thermal resistance, resulting in the lowest theoretical surface temperature of **998.9°C**.
+
+### **Validation Summary**
+This Python analysis provides a "sanity check" for the complex **ANSYS** results. While the simulation accounts for transient effects and complex geometry—yielding peak temperatures like **1005°C** for Titanium and **1000.1°C** for Cast Iron —this script validates that the physical trends (higher heat retention in low-conductivity materials) are consistent across both methods.
+
 ## Conclusion
 The study concludes that **Titanium Alloy** offers several advantages for engine cylinder blocks:
 * **Weight Reduction**: Significant reduction in overall engine weight leads to improved fuel efficiency and lower emissions.
